@@ -347,7 +347,52 @@
             pointer-events: none;
             /* Allows clicking through the gradient */
             z-index: 1;
-            /* Below container but above particles */
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px 15px;
+            }
+
+            .profile-card {
+                padding: 24px 15px 10px 15px;
+            }
+
+            .profile-pic {
+                width: 80px;
+                height: 80px;
+            }
+
+            .name {
+                font-size: 1.4rem;
+            }
+
+            .bio {
+                font-size: 0.95rem;
+            }
+
+            .card-title {
+                font-size: 1rem;
+            }
+
+            .featured-banner {
+                height: 160px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .name {
+                font-size: 1.25rem;
+            }
+
+            .bio {
+                font-size: 0.85rem;
+            }
+
+            .featured-banner {
+                height: 130px;
+            }
         }
     </style>
 </head>
