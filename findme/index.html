@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sadananda Paul | Socials</title>
+    <!-- Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Oswald:wght@500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --bg-color: #0b1f18;
+            /* Dark forest green */
+            --card-color: #ebf5e1;
+            /* Pale cream/green */
+            --text-light: #ebf5e1;
+            --text-dark: #0b1f18;
+            --accent-yellow: #dbb32d;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-image: url('../bgtest2.png');
+            /* Relative to findme/ folder */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            padding-bottom: 50px;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Animated background particles from homepage */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .particle {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-20px) rotate(180deg);
+            }
+        }
+
+        .container {
+            width: 100%;
+            max-width: 680px;
+            padding: 40px 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+            /* Ensure it stays above particles */
+        }
+
+        /* Top utility buttons */
+        .top-btn {
+            position: absolute;
+            top: 20px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(235, 245, 225, 0.2);
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            color: var(--text-light);
+            transition: background 0.2s;
+        }
+
+        .top-btn:hover {
+            background: rgba(235, 245, 225, 0.3);
+        }
+
+        .top-left {
+            left: 16px;
+        }
+
+        .top-right {
+            right: 16px;
+        }
+
+        /* Profile Block Glassmorphism Card */
+        .profile-card {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.05);
+            /* Same as other cards */
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+            border-radius: 40px;
+            padding: 30px 20px 10px 20px;
+            margin-bottom: 24px;
+        }
+
+        .profile-pic {
+            width: 96px;
+            height: 96px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            background-color: #222;
+        }
+
+        .name {
+            font-size: 1.6rem;
+            font-weight: 900;
+            margin-bottom: 12px;
+            text-align: center;
+            letter-spacing: -0.5px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+            /* extra pop */
+        }
+
+        .bio {
+            font-size: 1rem;
+            font-weight: 600;
+            text-align: center;
+            max-width: 320px;
+            margin-bottom: 24px;
+            line-height: 1.3;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Social Icons */
+        .socials {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 30px;
+        }
+
+        .socials a {
+            color: var(--text-light);
+            font-size: 1.6rem;
+            text-decoration: none;
+            transition: transform 0.2s;
+        }
+
+        .socials a:hover {
+            transform: scale(1.1);
+        }
+
+        /* Link Cards container */
+        .links {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-bottom: 50px;
+        }
+
+        /* Standard Card Style */
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+            color: #ffffff;
+            border-radius: 50px;
+            padding: 12px 16px;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            position: relative;
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .card-icon-left {
+            position: absolute;
+            left: 10px;
+            width: 44px;
+            height: 44px;
+            border-radius: 4px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card-icon-left img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-content {
+            width: 100%;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .card-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .card-subtitle {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.7);
+            margin-top: 4px;
+        }
+
+        .card-dots {
+            position: absolute;
+            right: 16px;
+            font-size: 0.9rem;
+            opacity: 0.4;
+        }
+
+        /* Featured YouTube Card */
+        .card-featured {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+            color: #ffffff;
+            border-radius: 20px;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease, background 0.3s ease;
+            overflow: hidden;
+        }
+
+        .card-featured:hover {
+            transform: translateY(-2px);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .featured-banner {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .featured-bottom {
+            padding: 18px 16px;
+            text-align: center;
+            font-weight: 800;
+            font-size: 1rem;
+            position: relative;
+        }
+
+        /* Specific icon overrides */
+        .icon-insta {
+            font-size: 26px;
+        }
+
+        .icon-linkedin {
+            background-color: #0077b5;
+            color: #ffffff;
+            font-size: 22px;
+        }
+
+        .icon-x {
+            background-color: #000000;
+            color: #ffffff;
+            font-size: 20px;
+        }
+
+        .icon-spotify-art {
+            background-color: var(--accent-yellow);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            font-family: 'Great Vibes', cursive;
+            font-size: 10px;
+            line-height: 1;
+            padding: 5px;
+            text-align: center;
+        }
+
+        .icon-wave {
+            background: transparent;
+            font-size: 28px;
+            background: linear-gradient(90deg, #ff416c, #ff4b2b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Bottom Gradient Fade Overlay */
+        .bottom-gradient {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 300px;
+            /* Slightly taller for a smoother fade */
+            background: linear-gradient(to top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.5) 40%, rgba(255, 255, 255, 0) 100%);
+            pointer-events: none;
+            /* Allows clicking through the gradient */
+            z-index: 1;
+            /* Below container but above particles */
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Animated background particles -->
+    <div class="particles" id="particles"></div>
+
+    <!-- Bottom gradient blur effect -->
+    <div class="bottom-gradient"></div>
+
+    <a href="#" class="top-btn top-right"><i class="fa-solid fa-arrow-up-from-bracket"></i></a>
+
+    <div class="container">
+
+        <!-- Profile Header Wrapped in Glass Card -->
+        <div class="profile-card">
+            <img src="sadananda.png" alt="Sadananda Paul" class="profile-pic">
+            <h1 class="name">Sadananda Paul</h1>
+            <p class="bio">I am Sadananda Paul, a tech enthusiast who is keen to learn and talk about tech.</p>
+
+            <!-- Socials -->
+            <div class="socials">
+                <a href="https://www.instagram.com/_sadananda_paul_/"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.youtube.com/@mashupdevilmax78"><i class="fa-brands fa-youtube"></i></a>
+                <a href="https://www.x.com/thisisSadananda">
+                    <svg width="20" height="20" viewBox="0 0 1200 1227" fill="none" xmlns="http://www.w3.org/2000/svg"
+                        style="fill:currentColor; margin-top: 3px;">
+                        <path
+                            d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+
+        <!-- Links List -->
+        <div class="links">
+
+            <!-- LinkedIn -->
+            <a href="https://www.linkedin.com/in/sadananda-paul-50352a329" class="card">
+                <div class="card-icon-left"
+                    style="border-radius: 50%; background: #ffffff; display: flex; align-items: center; justify-content: center;">
+                    <img src="linkedin-svgrepo-com.svg" alt="LinkedIn"
+                        style="width: 70%; height: 70%; object-fit: contain;">
+                </div>
+                <div class="card-content">
+                    <div class="card-title">LinkedIn</div>
+                </div>
+                <div class="card-dots"><i class="fa-solid fa-ellipsis-vertical"></i></div>
+            </a>
+
+            <!-- X -->
+            <a href="https://x.com/thisisSadananda" class="card">
+                <div class="card-icon-left"
+                    style="border-radius: 50%; background: #ffffff; display: flex; align-items: center; justify-content: center;">
+                    <img src="X_logo_2023.svg" alt="X" style="width: 70%; height: 70%; object-fit: contain;">
+                </div>
+                <div class="card-content">
+                    <div class="card-title">X</div>
+                </div>
+                <div class="card-dots"><i class="fa-solid fa-ellipsis-vertical"></i></div>
+            </a>
+
+            <!-- Featured YouTube -->
+            <a href="https://www.youtube.com/@mashupdevilmax78" class="card-featured">
+                <img src="Mashup verge logo_1.png" alt="Mashup Verge" class="featured-banner">
+                <div class="featured-bottom">
+                    YouTube
+                    <div class="card-dots" style="top: 20px;"><i class="fa-solid fa-ellipsis-vertical"></i></div>
+                </div>
+            </a>
+
+            <!-- Instagram -->
+            <a href="https://www.instagram.com/_sadananda_paul_" class="card">
+                <div class="card-icon-left" style="background: transparent;">
+                    <i class="fa-brands fa-instagram icon-insta"></i>
+                </div>
+                <div class="card-content" style="padding: 4px 0;">
+                    <div class="card-title">Instagram</div>
+                    <div class="card-subtitle"><i class="fa-brands fa-instagram" style="font-size:0.7rem;"></i>
+                        _sadananda_paul_ · 1.2K followers</div>
+                </div>
+                <div class="card-dots"><i class="fa-solid fa-ellipsis-vertical"></i></div>
+            </a>
+
+            <!-- Spotify -->
+            <a href="https://open.spotify.com/artist/18v4owfv3DPjYEAZkjuIb6" class="card">
+                <div class="card-icon-left"
+                    style="border-radius: 50%; background: #ffffff; display: flex; align-items: center; justify-content: center;">
+                    <img src="Mashup verge logo_1.png" alt="Spotify"
+                        style="width: 70%; height: 70%; object-fit: contain;">
+                </div>
+                <div class="card-content" style="padding: 4px 0;">
+                    <div class="card-title">Spotify</div>
+                    <div class="card-subtitle"><i class="fa-brands fa-spotify" style="font-size:0.7rem;"></i> Spotify -
+                        Mashup Verge</div>
+                </div>
+                <div class="card-dots"><i class="fa-solid fa-ellipsis-vertical"></i></div>
+            </a>
+
+            <!-- Sonic Wave -->
+            <a href="https://realsonicwave.one/" class="card">
+                <div class="card-content">
+                    <div class="card-title">Sonic Wave</div>
+                </div>
+                <div class="card-dots"><i class="fa-solid fa-ellipsis-vertical"></i></div>
+            </a>
+
+        </div>
+
+</body>
+
+</html>
